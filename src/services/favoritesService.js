@@ -1,4 +1,3 @@
-// src/services/favoritesService.js
 import {
   collection,
   addDoc,
@@ -13,7 +12,7 @@ import { db } from './firebase';
 
 const COLLECTION = 'favorites';
 
-// CREATE — Adiciona Pokémon aos favoritos
+
 export async function addFavorite(pokemon) {
   const docRef = await addDoc(collection(db, COLLECTION), {
     pokemonId: pokemon.id,
@@ -28,20 +27,20 @@ export async function addFavorite(pokemon) {
   return docRef.id;
 }
 
-// READ — Lista todos os favoritos
+
 export async function getFavorites() {
   const q = query(collection(db, COLLECTION), orderBy('addedAt', 'desc'));
   const snapshot = await getDocs(q);
   return snapshot.docs.map((d) => ({ docId: d.id, ...d.data() }));
 }
 
-// UPDATE — Atualiza apelido e anotação
+
 export async function updateFavorite(docId, { nickname, note }) {
   const ref = doc(db, COLLECTION, docId);
   await updateDoc(ref, { nickname, note });
 }
 
-// DELETE — Remove dos favoritos
+
 export async function deleteFavorite(docId) {
   await deleteDoc(doc(db, COLLECTION, docId));
 }
