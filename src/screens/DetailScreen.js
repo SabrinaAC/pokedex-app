@@ -1,4 +1,3 @@
-// src/screens/DetailScreen.js
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, Image, ScrollView, TouchableOpacity,
