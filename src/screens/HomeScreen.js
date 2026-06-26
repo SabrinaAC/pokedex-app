@@ -1,4 +1,3 @@
-// src/screens/HomeScreen.js
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
