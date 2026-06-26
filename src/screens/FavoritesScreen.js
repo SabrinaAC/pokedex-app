@@ -1,4 +1,3 @@
-// src/screens/FavoritesScreen.js
 import React, { useState, useCallback, useRef } from 'react';
 import {
   View, Text, FlatList, Image, TouchableOpacity,
@@ -17,7 +16,7 @@ export default function FavoritesScreen({ navigation }) {
   const [saving, setSaving] = useState(false);
   const modalAnim = useRef(new Animated.Value(0)).current;
 
-  // READ — Recarrega ao focar na tela
+  
   useFocusEffect(
     useCallback(() => {
       loadFavorites();
@@ -36,7 +35,7 @@ export default function FavoritesScreen({ navigation }) {
     }
   };
 
-  // DELETE
+  
   const handleDelete = (item) => {
     Alert.alert(
       'Remover Favorito',
@@ -58,7 +57,7 @@ export default function FavoritesScreen({ navigation }) {
     );
   };
 
-  // Abre modal UPDATE
+  
   const handleEdit = (item) => {
     setEditingItem(item);
     setNickname(item.nickname || '');
@@ -75,7 +74,7 @@ export default function FavoritesScreen({ navigation }) {
     }).start(() => setEditModalVisible(false));
   };
 
-  // UPDATE
+  
   const handleSaveEdit = async () => {
     setSaving(true);
     try {
